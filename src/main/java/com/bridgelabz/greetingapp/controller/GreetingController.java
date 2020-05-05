@@ -37,4 +37,10 @@ public class GreetingController {
     public boolean saveGreeting(@RequestBody GreetingsDTO greetingDTO) {
         return greetingService.register(greetingDTO);
     }
+
+    @PutMapping("/put/{id}")
+    public boolean updateGreetingInfo(@PathVariable Long id, @RequestBody GreetingsDTO greetingDTO) {
+        return greetingService.updateGreetingInfo(id, greetingDTO);
+    }
+
 }

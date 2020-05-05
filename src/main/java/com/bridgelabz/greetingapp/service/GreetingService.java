@@ -43,4 +43,15 @@ public class GreetingService {
     public List getAllGreetings() {
         return userRepository.findAll();
     }
+
+    public boolean updateGreetingInfo(Long id, GreetingsDTO greetingDTO) {
+        Greeting greeting = userRepository.getOne(id);
+        if (greetingDTO.getFirstName() != null)
+            greeting.setFirstName(greetingDTO.getFirstName());
+        if (greetingDTO.getLastName() != null)
+            greeting.setLastName(greetingDTO.getLastName());
+        greeting.setGreetingMessage("Hello" + " " + greeting.getFirstName() + " " + greeting.getLastName());
+        userRepository.save(greeting);
+        return true;
+    }
 }
