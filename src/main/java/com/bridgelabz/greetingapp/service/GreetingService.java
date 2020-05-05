@@ -54,4 +54,9 @@ public class GreetingService {
         userRepository.save(greeting);
         return true;
     }
+
+    public boolean deleteGreeting(Long id) {
+        userRepository.deleteById(id);
+        return true;
+    }
 }
